@@ -6,7 +6,7 @@ Local draft; not published.
 
 ## What this article adds, and why it matters
 
-The article follows three questions. First, multiplying the harmonic LRC
+The article follows four questions. First, multiplying the harmonic LRC
 voltage equation by current produces a power balance. A three-line system
 exposes the opposite heat and source entries, like debit and credit in a
 double-entry ledger. Completing its missing energy equations is left open.
@@ -20,6 +20,15 @@ Third, the numerical coefficient relation X=LRC is checked for consistent
 units. Component comparisons show how to strengthen either contribution
 for a fixed trajectory, and why positive coefficients alone cannot reverse
 its direction. X's physical identity remains unknown.
+
+Fourth, the same equation is applied to a simplified rotary impact driver,
+assuming the fictional component exists inside the tool. An exact comparison
+shows how its supplied work and an ordinary reduction in damping can reduce
+hammer input by the same amount on a chosen motion. The prose quantifies
+how much hammer work is replaced, distinguishes that from the damping
+percentage, and states when X could cover a braking load. Contact design,
+timing and the fictional component's energy cost remain part of the
+whole-tool comparison.
 
 [Read the article (PDF)](physics-ode-energy.pdf) ·
 [Manuscript source](physics-ode-energy.md)
