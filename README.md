@@ -6,7 +6,7 @@ Kirchhoff power balance and an unknown component with X = LRC.
 
 ## What this article adds, and why it matters
 
-The article follows five questions. First, multiplying the harmonic LRC
+The article follows six questions. First, multiplying the harmonic LRC
 voltage equation by current produces a power balance. A three-line system
 exposes the opposite heat and source entries, like debit and credit in a
 double-entry ledger. Completing its missing energy equations is left open.
@@ -35,6 +35,13 @@ how much hammer work is replaced, distinguishes that from the damping
 percentage, and states when X could cover a braking load. Contact design,
 timing and the fictional component's energy cost remain part of the
 whole-tool comparison.
+
+Sixth, a comparison with [Third- and Higher-Order ODEs](https://github.com/hobnilre/physics-ode-3rd-deg/blob/4bdb25cbf6057a848bf9fba09c98db7c5ddc9e9a/third-and-higher-order-odes.md)
+explains their shared signed-power method. An exact integration-by-parts
+identity connects the two presentations. Assigning a term to the unknown
+component here differs from deriving a higher-order equation by eliminating
+ordinary internal states. A shorter algebraic treatment can look similar
+while leaving the physical energy accounts and interpretation open.
 
 [Read the article (PDF)](physics-ode-energy.pdf) ·
 [Manuscript source](physics-ode-energy.md)

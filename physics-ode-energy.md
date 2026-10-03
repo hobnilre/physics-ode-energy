@@ -15,6 +15,8 @@ abstract: |
   circuit's power equation. Hand-hammer and rotary impact examples connect
   the model to familiar mechanics, distinguishing useful assistance, losses,
   support movement and the unknown cost of supplying the fictional component.
+  A comparison with the higher-order companion explains the shared signed-work
+  method and the different assumptions needed for physical interpretation.
 keywords:
   - Kirchhoff voltage law
   - harmonic ordinary differential equations
@@ -678,6 +680,74 @@ The quantified replacement concerns work at the output during a specified
 motion. Battery savings also depend on motor and hammer preparation and
 on whatever supplies or replenishes $X_r$. Its existence and coefficient
 alone leave those costs open.
+
+\newpage
+
+# A shared energy method and different physical interpretations
+
+## Signed work in the two papers
+
+The energy treatment here and in [*Third- and Higher-Order ODEs*][third]
+uses the same accounting principle: fix a port's effort, conjugate flow and
+positive direction, then integrate their power product over the stated
+interval. The products are voltage times current, force times velocity or
+torque times angular velocity. Matching opposite entries leaves the relevant
+stores and remaining accounts necessary for a complete physical balance.
+
+The companion also rearranges derivative products by integration by parts.
+For constant $X$, applying that operation to our signed port integral
+\eqref{eq:x-work} gives
+\begin{equation}
+W_X(t_0,t_1)
+=X\bigl[q''q'\bigr]_{t_0}^{t_1}
+-X\int_{t_0}^{t_1}(q'')^2\,dt.
+\label{eq:x-work-by-parts}
+\end{equation}
+Indeed, $(q''q')'=q'''q'+(q'')^2$. This is the same signed work in a
+different form. Over a full period of smooth periodic motion the endpoint
+product repeats, so $W_X\leq0$, agreeing with Part 2's sinusoidal supplier.
+On other intervals the endpoint term can make $W_X>0$, as the polynomial
+absorber illustrates. The boundary term does not identify an internal
+physical energy store for $X$.
+
+## What the third derivative represents
+
+Here $Xq'''$ is assumed to be the voltage of a fictional component.
+Under that assumption, \eqref{eq:x-powers} identifies its received power
+and the opposite contribution to line 2. The examples specify the work
+it would have to exchange; its identity, internal account and preparation
+or replenishment remain unspecified.
+
+In the companion's mechanical construction, eliminating internal
+coordinates introduces higher derivatives into the observed motion equation.
+The bodies and deformations retain their physical stores. A third-derivative
+coefficient therefore need not describe a separate component's effort.
+The companion evaluates physical work at the original ports and stored
+energy from component states, distinguishing them from expressions obtained
+by multiplying the scalar equation by a derivative.
+
+Comparison requires matching the port, signs and equation normalization.
+Multiplying an equation by a nonzero constant leaves its motion unchanged but
+rescales its term integrals; physical effort and flow fix the work scale.
+We assume $X=LRC$. The companion's dimensional family admits that
+third-order coefficient form, alongside others, without selecting it by
+dimensions or an energy outcome.
+
+## A shorter algebraic presentation
+
+An algebraic presentation of the companion's energy discussion could retain
+the scalar equation, multiplication by a chosen flow and signed term
+integrals, leaving their physical assignment open. That would shorten it
+and bring its presentation close to this paper. Calling a term a
+component's supplying or absorbing power would require an explicit port
+assumption, such as our proposed voltage law.
+
+Removing the realization and state reconstruction would also narrow the
+supported claims: actual stores and transfers would need further
+identification. The companion's coefficient construction and identification
+questions retain their own scope. Neither an increased formal expression
+nor a supplier label establishes energy creation, a conservation violation
+or a source's available capacity.
 
 \newpage
 
