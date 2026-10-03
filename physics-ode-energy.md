@@ -12,9 +12,9 @@ abstract: |
   it supplies or absorbs energy. Exact numerical examples show both cases.
   Assuming only the coefficient relation $X=LRC$, we check the units
   and compare how component choices strengthen either contribution to the
-  circuit's power equation. A fourth part carries the same model to a rotary
-  impact driver and compares its fictional contribution with ordinary loss
-  reduction, mechanical design and control.
+  circuit's power equation. Rotary impact and hand-hammer examples connect
+  the model to familiar mechanics, distinguishing useful assistance, losses,
+  support movement and the unknown cost of supplying the fictional component.
 keywords:
   - Kirchhoff voltage law
   - harmonic ordinary differential equations
@@ -22,6 +22,7 @@ keywords:
   - energy accounting
   - unknown component
   - rotary impact driver
+  - hammer and nail
 ---
 
 \begingroup\scriptsize
@@ -486,6 +487,183 @@ motion. Battery savings also depend on motor and hammer preparation and
 on whatever supplies or replenishes $X_r$. Its existence and coefficient
 alone leave those costs open.
 
+\newpage
+
+# A hammer, a nail and the feel of a blow
+
+## Putting familiar differences into the equation
+
+Think of tapping a nail with a small hammer, then using a heavier head.
+Or of striking a nail in a firmly backed board, then trying a board that
+bends under the blow. The weight in the hand, the resistance of the wood
+and the movement of the backing correspond to different parts of our ODE.
+
+Let $x(t)$ be forward movement of the hammer face and nail head during a
+smooth interval in which they remain in contact, and let $v=x'$. Measure
+$x$ relative to a fixed support reference. Use effective moving mass $m>0$,
+dominated by the hammer head, effective resistance $b>0$, and elastic
+stiffness $k>0$. Unresolved motion inside the fictional component is outside
+this one-coordinate description. We define the resisting forces as $bv$
+and $kx$, giving
+\begin{equation}
+mx''+bx'+kx=F(t),\qquad
+(L,R,C)\longleftrightarrow(m,b,1/k).
+\label{eq:hammer-base}
+\end{equation}
+Here $F(t)$ is any continued external driving force along the stroke.
+The electrical capacitance corresponds to mechanical *compliance*, $1/k$:
+a larger compliance means a more yielding setup.
+
+| Familiar change | Main place in the model |
+| :------------------------------------ | :------------------------------------ |
+| A heavier hammer head | Larger $m$, corresponding to $L$. |
+| Wood gripping the nail more strongly | Larger effective $b$, corresponding to $R$. |
+| Firm backing instead of a bending board | Larger effective $k$, hence smaller $C=1/k$. |
+| Different nail geometry or contact compliance | Changes in $k$, and possibly $b$ as well. |
+
+: These are model associations; a real change can affect several coefficients.
+
+The velocity-proportional law $bv$ is an idealized resistance for this
+interval. Actual nail friction is not specified by a single constant $b$.
+Likewise, $x$ includes elastic movement of the wood and backing; it is not
+automatically the nail's permanent penetration depth.
+
+Assume that the fictional component now exists inside the hammer and acts
+at its working face. Its proposed effective force law gives
+\begin{equation}
+X_hx'''+mx''+bx'+kx=F(t),\qquad X_h=\frac{mb}{k}>0.
+\label{eq:hammer-third}
+\end{equation}
+Since $[b]=\mathrm{N\,s/m}$ and $[k]=\mathrm{N/m}$,
+$[X_h]=\mathrm{kg\,s}$ and $X_hx'''$ is a force. Multiplication by $v$
+gives the familiar power equation,
+\begin{equation}
+Fv-X_hx'''v-mx''v-bv^2-kxv=0.
+\label{eq:hammer-power}
+\end{equation}
+The component receives $P_{X_h}=X_hx'''v$, with the opposite entry here.
+It supplies when $x'''v<0$ and absorbs when $x'''v>0$. How a component
+inside the hammer produces this force, carries its reaction and exchanges
+the required energy remains unspecified.
+
+\newpage
+
+## The same incoming speed, with different heads, wood and backing
+
+Hold the incoming speed $V$ fixed. Preparing the moving mass from rest requires
+\begin{equation}
+W_{\mathrm{in}}=\int mv\frac{dv}{dt}\,dt
+=\int_0^V mv\,dv=\frac12mV^2.
+\label{eq:hammer-preparation}
+\end{equation}
+A heavier head at the same speed therefore requires more preparation work.
+If preparation work is fixed instead, its speed must be lower.
+
+Take a horizontal stroke with no continued hand force, so $F=0$. Start at
+$x(0)=0$, $v(0)=V$, and give the fictional model the additional initial
+condition $x''(0)=0$, part of its assumed preparation. Put
+$\omega=\sqrt{k/m}$. An exact solution is
+\begin{equation}
+x(t)=\frac{V}{\omega}\sin(\omega t),\qquad
+0\leq t\leq t_*:=\frac{\pi}{2\omega},\qquad
+x_*:=x(t_*)=\frac{V}{\omega}.
+\label{eq:hammer-motion}
+\end{equation}
+Direct substitution gives $mx''+kx=0$ and $X_hx'''+bv=0$.
+The head moves forward and slows to its first stop. Throughout this motion,
+the fictional component supplies exactly the power taken by the resistance.
+The signed transfers are
+\begin{equation}
+W_{X_h}=\int_0^{t_*}X_hx'''v\,dt
+=-\int_0^{t_*}bv^2\,dt
+=-\frac{\pi bV^2}{4\omega}=-W_b.
+\label{eq:hammer-work}
+\end{equation}
+Elastic loading separately receives
+$\int_0^{t_*}kxv\,dt=kx_*^2/2=mV^2/2$.
+The prepared motion pays for this loading; $X_h$ pays the resistance
+from its unknown account.
+
+Choose illustrative reference values
+$$
+m=\frac12\,\mathrm{kg},\qquad b=1000\,\mathrm{N\,s/m},\qquad
+k=500000\,\mathrm{N/m},\qquad V=2\,\mathrm{m/s}.
+$$
+Here $\omega=1000\,\mathrm{s^{-1}}$ and $t_*=\pi/2\,\mathrm{ms}$.
+Change one coefficient at a time, keeping $V$ and $F=0$. Recompute
+$X_h$, the motion and its stopping time for every case.
+
+| Case | $X_h$ ($\mathrm{kg\,s}$) | $x_*$ ($\mathrm{mm}$) | $kx_*$ ($\mathrm N$) | $X_h$ supplies ($\mathrm J$) |
+| :------------------------ | --------: | --------: | --------: | --------: |
+| Reference | $1/1000$ | $2$ | $1000$ | $\pi$ |
+| Twice the head mass | $1/500$ | $2\sqrt2$ | $1000\sqrt2$ | $\sqrt2\pi$ |
+| Twice the resistance $b$ | $1/500$ | $2$ | $1000$ | $2\pi$ |
+| Half the stiffness $k$ | $1/500$ | $2\sqrt2$ | $500\sqrt2$ | $\sqrt2\pi$ |
+
+: Exact model results. $kx_*$ is elastic force at the stop, not peak contact force.
+
+**Heavier head.** Preparation work rises from $1\,\mathrm J$ to
+$2\,\mathrm J$. The greater travel and elastic force accompany that larger
+input, as one expects when swinging more mass at the same speed.
+
+**More wood resistance.** Travel stays unchanged only because $X_h$ supplies
+$2\pi\,\mathrm J$ instead of $\pi\,\mathrm J$. All the extra supply pays
+for the extra resistance.
+
+**Softer backing.** Greater travel comes with less elastic force at the stop.
+The extra movement may be bending of the board; it does not establish
+better nail driving.
+
+\newpage
+
+## Does this make sense in the real world?
+
+The ordinary model gives a useful comparison. With the reference $m,b,k$,
+the same incoming speed and $F=0$, its exact solution is
+\begin{equation}
+x_0(t)=(2\,\mathrm{mm})\,u e^{-u},\qquad
+u=\frac{t}{1\,\mathrm{ms}}.
+\label{eq:hammer-ordinary}
+\end{equation}
+It satisfies \eqref{eq:hammer-base} directly and stops first at
+$t=1\,\mathrm{ms}$, after $2/e\,\mathrm{mm}$ of head movement.
+The fictional model reaches $2\,\mathrm{mm}$ instead. Its larger loading
+movement is accompanied by $\pi\,\mathrm J$ supplied by $X_h$, in addition
+to the $1\,\mathrm J$ initially put into the moving mass. The extra supply
+is a requirement of this comparison; we have not identified its source.
+
+Mass, resistance and compliance do capture familiar differences between
+blows. A heavier head at equal speed carries more prepared work; a yielding
+backing lets the workpiece move; greater resistance demands more work for
+the same motion. Nail shape and wood grain also affect fiber damage and
+splitting ([Rammer, 2021][rammer]). A change of nail or wood can therefore
+change more than one model coefficient.
+
+Driving a nail also leaves a permanent change. A linear spring describes
+elastic resistance, while a driven nail can remain at its new depth. To
+predict that depth, the model needs a law for irreversible penetration and
+a distinction between nail motion through wood and motion of the wood
+itself. Some resistance work is part of making the hole and setting the
+nail; it cannot all be treated as avoidable waste. The present calculation
+describes a loading interval, ending before rebound or release.
+
+There is another consequence of $X_h=mb/k$: moving the same hammer to
+different wood or a different backing changes its predicted coefficient.
+Here the relation is an assumption about the *coupled setup*. An internal
+component would need a response that depends on that load; its existence
+alone does not explain such a response. The familiar feel of ordinary
+hammering does not establish the proposed third-derivative force law.
+
+For the practical question, compare reaching the same permanent nail depth
+with less total supplied work. Include the swing and whatever prepares or
+replenishes $X_h$, with comparable initial and final component states.
+Just as increased fictional supply alone does not establish battery savings
+in the driver, it does not establish reduced effort here. The model makes
+the mass, resistance and backing effects understandable, and calculates the
+energy that $X_h$ would have to exchange. Whether an actual component can
+provide that exchange economically remains open because we still do not
+know what $X_h$ is.
+
 # References {-}
 
 1. Andreas Wettstein, Patric Grauberger and Sven Matthiesen (2021).
@@ -498,6 +676,11 @@ alone leave those costs open.
    for an impact wrench tool][benazet]. *European Journal of Control*,
    article 101596, available online 28 July 2026.
    DOI: 10.1016/j.ejcon.2026.101596.
+3. Douglas R. Rammer (2021). [Fastenings][rammer]. Chapter 8 in
+   *Wood handbook: Wood as an engineering material*, General Technical
+   Report FPL-GTR-282. U.S. Department of Agriculture, Forest Service,
+   Forest Products Laboratory.
 
 [wettstein]: https://doi.org/10.1007/s42452-021-04149-8
 [benazet]: https://doi.org/10.1016/j.ejcon.2026.101596
+[rammer]: https://research.fs.usda.gov/treesearch/62253

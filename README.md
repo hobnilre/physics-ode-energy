@@ -6,7 +6,7 @@ Local draft; not published.
 
 ## What this article adds, and why it matters
 
-The article follows four questions. First, multiplying the harmonic LRC
+The article follows five questions. First, multiplying the harmonic LRC
 voltage equation by current produces a power balance. A three-line system
 exposes the opposite heat and source entries, like debit and credit in a
 double-entry ledger. Completing its missing energy equations is left open.
@@ -29,6 +29,12 @@ how much hammer work is replaced, distinguishes that from the damping
 percentage, and states when X could cover a braking load. Contact design,
 timing and the fictional component's energy cost remain part of the
 whole-tool comparison.
+
+Fifth, a hammer and nail connect the same coefficients to familiar changes
+in head mass, wood resistance and backing stiffness. Exact examples separate
+head movement from permanent nail depth and show the energy the fictional
+component must supply. Practical benefit requires the same useful result
+with less total input, including preparation or replenishment of X.
 
 [Read the article (PDF)](physics-ode-energy.pdf) ·
 [Manuscript source](physics-ode-energy.md)
