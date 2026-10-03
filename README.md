@@ -46,6 +46,8 @@ while leaving the physical energy accounts and interpretation open.
 [Read the article (PDF)](physics-ode-energy.pdf) ·
 [Manuscript source](physics-ode-energy.md)
 
+[Läs artikeln på svenska](https://github.com/hobnilre/physics-ode-energy-sv).
+
 ## Standalone build
 
 Install GNU Make, GNU Coreutils, Pandoc, XeLaTeX, the TeX Gyre fonts, and the
