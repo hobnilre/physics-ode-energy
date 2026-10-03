@@ -12,7 +12,7 @@ abstract: |
   it supplies or absorbs energy. Exact numerical examples show both cases.
   Assuming only the coefficient relation $X=LRC$, we check the units
   and compare how component choices strengthen either contribution to the
-  circuit's power equation. Rotary impact and hand-hammer examples connect
+  circuit's power equation. Hand-hammer and rotary impact examples connect
   the model to familiar mechanics, distinguishing useful assistance, losses,
   support movement and the unknown cost of supplying the fictional component.
 keywords:
@@ -59,7 +59,8 @@ f(t)i-Lq''i-Rq'i-\frac{qi}{C}=0.
 \end{equation}
 Each term is now voltage times current, measured in watts. The forcing
 contributes $+fi$ to this equation; resistor absorption contributes
-$-Rq'i=-Ri^2$.
+$-Rq'i=-Ri^2$. This is the single-loop case of the network power
+identity in [Tellegen (1952)][tellegen].
 
 The power sum is zero. To relate it to constant total energy, include the
 heat recipient and the forcing source or sink:
@@ -306,189 +307,6 @@ terms of line 4 are still open.
 
 \newpage
 
-# The same equation in a rotary impact driver
-
-## A simplified output model
-
-A rotary impact driver uses a motor to accelerate a hammer, which transfers
-torque to an anvil and then to the bit and fastener. Established hammer
-models distinguish acceleration, contact and release, with joint stiffness
-and losses affecting the blow ([Wettstein et al., 2021][wettstein]). Here we
-retain one smooth loading interval within a blow.
-
-Let $\theta(t)$ be the output's angular displacement from a fixed local
-reference, and $\Omega=\theta'$ its angular velocity. Use constant output
-inertia $J>0$, resisting coefficient $b>0$, and torsional stiffness $k>0$.
-The resisting torques are $b\Omega$ and $k\theta$. The hammer applies a
-prescribed torque $\tau_h(t)$; its inertia is outside this output model and
-is not included in $J$. Torque balance gives
-\begin{equation}
-J\theta''+b\theta'+k\theta=\tau_h(t).
-\label{eq:rotary-base}
-\end{equation}
-This is the original harmonic ODE under the correspondence
-$$
-q\leftrightarrow\theta,\quad i\leftrightarrow\Omega,\quad
-L\leftrightarrow J,\quad R\leftrightarrow b,\quad
-C\leftrightarrow1/k,\quad f\leftrightarrow\tau_h.
-$$
-The spring and damping laws define a local ideal model. Contact switching,
-successive blows and permanent fastener advance require additional laws.
-
-Now assume that the fictional component exists somewhere inside the tool
-and acts at this output. Write its rotational coefficient as $X_r$:
-\begin{equation}
-X_r\theta'''+J\theta''+b\theta'+k\theta=\tau_h(t),
-\qquad X_r=\frac{Jb}{k}>0.
-\label{eq:rotary-third}
-\end{equation}
-The relation is the rotational counterpart of $X=LRC$. Since $b/k$ has
-units of seconds,
-$$
-[X_r]=\mathrm{N\,m\,s^3/rad}=\mathrm{kg\,m^2\,s},
-\qquad [X_r\theta''']=\mathrm{N\,m},
-$$
-where radians are dimensionless in SI. Its coefficient is known; its
-physical mechanism remains unspecified.
-
-Multiplication by $\Omega$ gives the same source-first power equation:
-\begin{equation}
-\tau_h\Omega-X_r\theta'''\Omega-J\theta''\Omega
--b\Omega^2-k\theta\Omega=0.
-\label{eq:rotary-power}
-\end{equation}
-The component receives $P_{X_r}=X_r\theta'''\Omega$, with the opposite
-entry in this equation. It supplies power when $\theta'''\Omega<0$ and
-absorbs when $\theta'''\Omega>0$. The heat and hammer accounts likewise
-receive $+b\Omega^2$ and $-\tau_h\Omega$, as in the earlier ledger.
-
-\newpage
-
-## Comparing the work on the same motion
-
-Hold the trajectory and interval fixed and calculate the required hammer
-torque separately for the ordinary model and the model containing $X_r$.
-Call these torques $\tau_0$ and $\tau_X$. Their difference is
-$\tau_X-\tau_0=X_r\theta'''$. Integrating their signed port powers gives
-\begin{equation}
-W_h^{(X)}-W_h^{(0)}
-=\int_{t_0}^{t_1}(\tau_X-\tau_0)\Omega\,dt
-=\int_{t_0}^{t_1}X_r\theta'''\Omega\,dt=W_{X_r},
-\label{eq:rotary-work-difference}
-\end{equation}
-where each $W_h$ is work delivered by the hammer to the output.
-Thus supplying reduces the required hammer work by exactly the work
-supplied by $X_r$. Absorbing increases it on the same motion; absorption
-can instead serve a braking objective when the derivative product has the
-required sign. Returning that absorbed energy later needs a component law.
-
-For a concrete comparison, choose the smooth loading segment
-\begin{equation}
-\theta(t)=\Theta\sin(\nu t),\qquad
-0\leq t\leq\frac{\pi}{2\nu},\qquad \Theta>0,\quad\nu>0.
-\label{eq:rotary-motion}
-\end{equation}
-The angle increases while the output slows to rest. All comparisons start
-with the same nonzero angular velocity $\Theta\nu$ and end at the same
-angle $\Theta$. Since $\theta'''=-\nu^2\Omega$, $X_r$ supplies throughout
-the moving part. Its signed work and the heat transfer are
-\begin{align}
-W_{X_r}&=\int_0^{\pi/(2\nu)}X_r\theta'''\Omega\,dt
-=-\frac{\pi}{4}X_r\Theta^2\nu^3,\label{eq:rotary-x-work}\\
-W_b&=\int_0^{\pi/(2\nu)}b\Omega^2\,dt
-=\frac{\pi}{4}b\Theta^2\nu.\label{eq:rotary-heat}
-\end{align}
-On this trajectory, the required torque is also obtained by an ordinary
-model with reduced damping
-\begin{equation}
-b_{\mathrm{eff}}=b-X_r\nu^2
-=b\left(1-\frac{J\nu^2}{k}\right),
-\qquad b_{\mathrm{eff}}\geq0.
-\label{eq:rotary-effective-damping}
-\end{equation}
-Indeed, $X_r\theta'''+b\Omega=b_{\mathrm{eff}}\Omega$.
-This equality concerns the chosen motion. In the fictional model the
-original heat transfer remains and $X_r$ supplies the difference. In the
-ordinary model less work becomes heat.
-
-Take the following exact illustrative values; they are not measurements of a driver:
-$$
-J=10^{-4}\,\mathrm{kg\,m^2},\quad
-b=\frac1{50}\,\mathrm{N\,m\,s/rad},\quad
-k=1000\,\mathrm{N\,m/rad},\quad
-\Theta=\frac1{10}\,\mathrm{rad},\quad\nu=1000\,\mathrm{s^{-1}}.
-$$
-Then $X_r=2\cdot10^{-9}\,\mathrm{kg\,m^2\,s}$,
-$J\nu^2/k=1/10$, and $b_{\mathrm{eff}}=9/500\,\mathrm{N\,m\,s/rad}$.
-
-| Model on the same motion | Heat ($\mathrm J$) | $W_{X_r}$ ($\mathrm J$) | $\Delta W_h$ ($\mathrm J$) |
-| :----------------------------- | ---------: | ---------: | ---------: |
-| Ordinary, original $b$ | $\pi/20$ | $0$ | $0$ |
-| Fictional, original $b$ | $\pi/20$ | $-\pi/200$ | $-\pi/200$ |
-| Ordinary, $b$ reduced by $10\%$ | $9\pi/200$ | $0$ | $-\pi/200$ |
-
-: Exact transfers; $\Delta W_h$ is the change in hammer work relative to the first model.
-
-\newpage
-
-## How much conventional effort can $X_r$ replace?
-
-An effective driver reaches a specified tightening target with less battery
-work and time, within torque, vibration and wear limits. Conventional
-mechanical design adjusts hammer preparation and contact with the anvil
-([Wettstein et al., 2021][wettstein]); control adjusts motor effort and
-impact timing ([Benazet et al., 2026][benazet]). The replacement by $X_r$
-can be stated more precisely at our output boundary.
-
-**During the useful motion, it can replace part of the hammer input.**
-In the worked example, $X_r$ supplies $\pi/200\,\mathrm J$, so the hammer
-can deliver exactly that much less work while retaining the same motion.
-Its assisting torque is $1/5\,\mathrm{N\,m}$ at the start and falls to
-zero at the end. The ordinary hammer work, evaluated from its port power, is
-\begin{equation}
-W_h^{(0)}=\int_0^{\pi/(2\nu)}\tau_0\Omega\,dt
-=\left(\frac92+\frac{\pi}{20}\right)\mathrm J.
-\label{eq:rotary-baseline-work}
-\end{equation}
-Thus $X_r$ replaces the fraction $\pi/(900+10\pi)$ of that input,
-approximately $0.34\%$. The table's $10\%$ refers specifically to damping;
-the fraction of total hammer work replaced is much smaller here.
-
-**It can substitute for the input saving from reducing losses.**
-On this sine motion, write $r=J\nu^2/k$. For $0<r<1$, $X_r$ covers the
-fraction $r$ of the damping work, giving the same hammer-input reduction
-as lowering $b$ by that fraction. Actual heating remains $W_b$ in the
-fictional model. At $r=1$, it pays all the damping work; the inertial and
-spring torques also cancel on this particular motion, so the required
-hammer torque is zero throughout the segment. The initial rotation still
-has to be prepared. For $r>1$, its supply exceeds the damping work, beyond
-what reducing a nonnegative damping coefficient alone can reproduce.
-Increasing $b$ raises both supply and heating equally; changing $J$ or $k$
-also changes the output mechanics. A larger $X_r$ alone is not an optimum.
-
-**It can replace braking effort only during absorption.**
-Where $\theta'''\Omega>0$, $X_r$ takes the instantaneous power
-$X_r\theta'''\Omega$. It can cover that amount of a separately required
-braking load; conventional braking must cover any shortfall. Excess
-absorption requires an adjusted drive or motion. Slowing down alone does
-not establish this role: the worked sine slows to rest while $X_r$
-*supplies* power, so it provides no replacement for a brake there.
-
-**Contact design and control still determine when the assistance is useful.**
-The term has no independent timing command: the motion fixes its sign.
-Where $\theta'''=0$, it provides no torque assistance; where $\Omega=0$,
-it transfers no power. Its work contribution therefore does not specify
-a replacement for contact geometry, engagement and release, sensing, or
-the decision to stop at the tightening target. Nor does the local work
-saving specify a percentage reduction in hammer size or motor rating.
-
-The quantified replacement concerns work at the output during a specified
-motion. Battery savings also depend on motor and hammer preparation and
-on whatever supplies or replenishes $X_r$. Its existence and coefficient
-alone leave those costs open.
-
-\newpage
-
 # A hammer, a nail and the feel of a blow
 
 ## Putting familiar differences into the equation
@@ -633,7 +451,8 @@ to the $1\,\mathrm J$ initially put into the moving mass. The extra supply
 is a requirement of this comparison; we have not identified its source.
 
 Mass, resistance and compliance do capture familiar differences between
-blows. A heavier head at equal speed carries more prepared work; a yielding
+blows. Hammer mass, impact speed, nail geometry, grain direction and backing
+material were studied directly by [Salem et al. (1975)][salem]. A heavier head at equal speed carries more prepared work; a yielding
 backing lets the workpiece move; greater resistance demands more work for
 the same motion. Nail shape and wood grain also affect fiber damage and
 splitting ([Rammer, 2021][rammer]). A change of nail or wood can therefore
@@ -643,8 +462,10 @@ Driving a nail also leaves a permanent change. A linear spring describes
 elastic resistance, while a driven nail can remain at its new depth. To
 predict that depth, the model needs a law for irreversible penetration and
 a distinction between nail motion through wood and motion of the wood
-itself. Some resistance work is part of making the hole and setting the
-nail; it cannot all be treated as avoidable waste. The present calculation
+itself. Pressing tests distinguish resistance at the advancing nail point from
+friction along the shank ([Arima et al., 1989][arima]). Some resistance
+work is part of making the hole and setting the nail; it cannot all be
+treated as avoidable waste. The present calculation
 describes a loading interval, ending before rebound or release.
 
 There is another consequence of $X_h=mb/k$: moving the same hammer to
@@ -657,30 +478,247 @@ hammering does not establish the proposed third-derivative force law.
 For the practical question, compare reaching the same permanent nail depth
 with less total supplied work. Include the swing and whatever prepares or
 replenishes $X_h$, with comparable initial and final component states.
-Just as increased fictional supply alone does not establish battery savings
-in the driver, it does not establish reduced effort here. The model makes
+Increased fictional supply alone does not establish reduced effort. The model makes
 the mass, resistance and backing effects understandable, and calculates the
 energy that $X_h$ would have to exchange. Whether an actual component can
 provide that exchange economically remains open because we still do not
 know what $X_h$ is.
 
+\newpage
+
+# The same equation in a rotary impact driver
+
+## A simplified output model
+
+The hand hammer gives us the feel of mass, resistance and backing. Now
+replace forward movement with rotation, and hand preparation with a motor.
+A rotary impact driver uses a motor to accelerate a hammer, which transfers
+torque to an anvil and then to the bit and fastener. Established hammer
+models distinguish acceleration, contact and release, with joint stiffness
+and losses affecting the blow ([Wettstein et al., 2021][wettstein]). Here we
+retain one smooth loading interval within a blow.
+
+Let $\theta(t)$ be the output's angular displacement from a fixed local
+reference, and $\Omega=\theta'$ its angular velocity. Use constant output
+inertia $J>0$, resisting coefficient $b>0$, and torsional stiffness $k>0$.
+The resisting torques are $b\Omega$ and $k\theta$. The hammer applies a
+prescribed torque $\tau_h(t)$; its inertia is outside this output model and
+is not included in $J$. Torque balance gives
+\begin{equation}
+J\theta''+b\theta'+k\theta=\tau_h(t).
+\label{eq:rotary-base}
+\end{equation}
+This is the original harmonic ODE under the correspondence
+$$
+q\leftrightarrow\theta,\quad i\leftrightarrow\Omega,\quad
+L\leftrightarrow J,\quad R\leftrightarrow b,\quad
+C\leftrightarrow1/k,\quad f\leftrightarrow\tau_h.
+$$
+The spring and damping laws define a local ideal model. Contact switching,
+successive blows and permanent fastener advance require additional laws.
+
+The companion [*Third- and Higher-Order ODEs* (Nilre and Herlin, 2026)][third]
+derives a fourth-order hammer equation from coupled hammer and anvil laws.
+That equation also contains derivatives of the driving torque. It describes
+the coupled assembly; it does not identify the isolated fictional component
+assumed here.
+
+Now assume that the fictional component exists somewhere inside the tool
+and acts at this output. Write its rotational coefficient as $X_r$:
+\begin{equation}
+X_r\theta'''+J\theta''+b\theta'+k\theta=\tau_h(t),
+\qquad X_r=\frac{Jb}{k}>0.
+\label{eq:rotary-third}
+\end{equation}
+The relation is the rotational counterpart of $X=LRC$. Since $b/k$ has
+units of seconds,
+$$
+[X_r]=\mathrm{N\,m\,s^3/rad}=\mathrm{kg\,m^2\,s},
+\qquad [X_r\theta''']=\mathrm{N\,m},
+$$
+where radians are dimensionless in SI. Its coefficient is known; its
+physical mechanism remains unspecified.
+
+Multiplication by $\Omega$ gives the same source-first power equation:
+\begin{equation}
+\tau_h\Omega-X_r\theta'''\Omega-J\theta''\Omega
+-b\Omega^2-k\theta\Omega=0.
+\label{eq:rotary-power}
+\end{equation}
+The component receives $P_{X_r}=X_r\theta'''\Omega$, with the opposite
+entry in this equation. It supplies power when $\theta'''\Omega<0$ and
+absorbs when $\theta'''\Omega>0$. The heat and hammer accounts likewise
+receive $+b\Omega^2$ and $-\tau_h\Omega$, as in the earlier ledger.
+
+\newpage
+
+## Comparing the work on the same motion
+
+Impact-wrench energy accounting distinguishes work at the joint, elastic
+deformation of the output shaft and frictional losses ([Wallace, 2015][wallace]).
+Our comparison keeps the boundary at the output defined above.
+
+Hold the trajectory and interval fixed and calculate the required hammer
+torque separately for the ordinary model and the model containing $X_r$.
+Call these torques $\tau_0$ and $\tau_X$. Their difference is
+$\tau_X-\tau_0=X_r\theta'''$. Integrating their signed port powers gives
+\begin{equation}
+W_h^{(X)}-W_h^{(0)}
+=\int_{t_0}^{t_1}(\tau_X-\tau_0)\Omega\,dt
+=\int_{t_0}^{t_1}X_r\theta'''\Omega\,dt=W_{X_r},
+\label{eq:rotary-work-difference}
+\end{equation}
+where each $W_h$ is work delivered by the hammer to the output.
+Thus supplying reduces the required hammer work by exactly the work
+supplied by $X_r$. Absorbing increases it on the same motion; absorption
+can instead serve a braking objective when the derivative product has the
+required sign. Returning that absorbed energy later needs a component law.
+
+For a concrete comparison, choose the smooth loading segment
+\begin{equation}
+\theta(t)=\Theta\sin(\nu t),\qquad
+0\leq t\leq\frac{\pi}{2\nu},\qquad \Theta>0,\quad\nu>0.
+\label{eq:rotary-motion}
+\end{equation}
+The angle increases while the output slows to rest. All comparisons start
+with the same nonzero angular velocity $\Theta\nu$ and end at the same
+angle $\Theta$. Since $\theta'''=-\nu^2\Omega$, $X_r$ supplies throughout
+the moving part. Its signed work and the heat transfer are
+\begin{align}
+W_{X_r}&=\int_0^{\pi/(2\nu)}X_r\theta'''\Omega\,dt
+=-\frac{\pi}{4}X_r\Theta^2\nu^3,\label{eq:rotary-x-work}\\
+W_b&=\int_0^{\pi/(2\nu)}b\Omega^2\,dt
+=\frac{\pi}{4}b\Theta^2\nu.\label{eq:rotary-heat}
+\end{align}
+On this trajectory, the required torque is also obtained by an ordinary
+model with reduced damping
+\begin{equation}
+b_{\mathrm{eff}}=b-X_r\nu^2
+=b\left(1-\frac{J\nu^2}{k}\right),
+\qquad b_{\mathrm{eff}}\geq0.
+\label{eq:rotary-effective-damping}
+\end{equation}
+Indeed, $X_r\theta'''+b\Omega=b_{\mathrm{eff}}\Omega$.
+This equality concerns the chosen motion. In the fictional model the
+original heat transfer remains and $X_r$ supplies the difference. In the
+ordinary model less work becomes heat.
+
+Take the following exact illustrative values; they are not measurements of a driver:
+$$
+J=10^{-4}\,\mathrm{kg\,m^2},\quad
+b=\frac1{50}\,\mathrm{N\,m\,s/rad},\quad
+k=1000\,\mathrm{N\,m/rad},\quad
+\Theta=\frac1{10}\,\mathrm{rad},\quad\nu=1000\,\mathrm{s^{-1}}.
+$$
+Then $X_r=2\cdot10^{-9}\,\mathrm{kg\,m^2\,s}$,
+$J\nu^2/k=1/10$, and $b_{\mathrm{eff}}=9/500\,\mathrm{N\,m\,s/rad}$.
+
+| Model on the same motion | Heat ($\mathrm J$) | $W_{X_r}$ ($\mathrm J$) | $\Delta W_h$ ($\mathrm J$) |
+| :----------------------------- | ---------: | ---------: | ---------: |
+| Ordinary, original $b$ | $\pi/20$ | $0$ | $0$ |
+| Fictional, original $b$ | $\pi/20$ | $-\pi/200$ | $-\pi/200$ |
+| Ordinary, $b$ reduced by $10\%$ | $9\pi/200$ | $0$ | $-\pi/200$ |
+
+: Exact transfers; $\Delta W_h$ is the change in hammer work relative to the first model.
+
+\newpage
+
+## How much conventional effort can $X_r$ replace?
+
+An effective driver reaches a specified tightening target with less battery
+work and time, within torque, vibration and wear limits. Conventional
+mechanical design adjusts hammer preparation and contact with the anvil
+([Wettstein et al., 2021][wettstein]); control adjusts motor effort and
+impact timing ([Benazet et al., 2026][benazet]). The replacement by $X_r$
+can be stated more precisely at our output boundary.
+
+**During the useful motion, it can replace part of the hammer input.**
+In the worked example, $X_r$ supplies $\pi/200\,\mathrm J$, so the hammer
+can deliver exactly that much less work while retaining the same motion.
+Its assisting torque is $1/5\,\mathrm{N\,m}$ at the start and falls to
+zero at the end. The ordinary hammer work, evaluated from its port power, is
+\begin{equation}
+W_h^{(0)}=\int_0^{\pi/(2\nu)}\tau_0\Omega\,dt
+=\left(\frac92+\frac{\pi}{20}\right)\mathrm J.
+\label{eq:rotary-baseline-work}
+\end{equation}
+Thus $X_r$ replaces the fraction $\pi/(900+10\pi)$ of that input,
+approximately $0.34\%$. The table's $10\%$ refers specifically to damping;
+the fraction of total hammer work replaced is much smaller here.
+
+**It can substitute for the input saving from reducing losses.**
+On this sine motion, write $r=J\nu^2/k$. For $0<r<1$, $X_r$ covers the
+fraction $r$ of the damping work, giving the same hammer-input reduction
+as lowering $b$ by that fraction. Actual heating remains $W_b$ in the
+fictional model. At $r=1$, it pays all the damping work; the inertial and
+spring torques also cancel on this particular motion, so the required
+hammer torque is zero throughout the segment. The initial rotation still
+has to be prepared. For $r>1$, its supply exceeds the damping work, beyond
+what reducing a nonnegative damping coefficient alone can reproduce.
+Increasing $b$ raises both supply and heating equally; changing $J$ or $k$
+also changes the output mechanics. A larger $X_r$ alone is not an optimum.
+
+**It can replace braking effort only during absorption.**
+Where $\theta'''\Omega>0$, $X_r$ takes the instantaneous power
+$X_r\theta'''\Omega$. It can cover that amount of a separately required
+braking load; conventional braking must cover any shortfall. Excess
+absorption requires an adjusted drive or motion. Slowing down alone does
+not establish this role: the worked sine slows to rest while $X_r$
+*supplies* power, so it provides no replacement for a brake there.
+
+**Contact design and control still determine when the assistance is useful.**
+The term has no independent timing command: the motion fixes its sign.
+Where $\theta'''=0$, it provides no torque assistance; where $\Omega=0$,
+it transfers no power. Its work contribution therefore does not specify
+a replacement for contact geometry, engagement and release, sensing, or
+the decision to stop at the tightening target. Nor does the local work
+saving specify a percentage reduction in hammer size or motor rating.
+
+The quantified replacement concerns work at the output during a specified
+motion. Battery savings also depend on motor and hammer preparation and
+on whatever supplies or replenishes $X_r$. Its existence and coefficient
+alone leave those costs open.
+
+\newpage
+
 # References {-}
 
-1. Andreas Wettstein, Patric Grauberger and Sven Matthiesen (2021).
-   [Modeling dynamic mechanical system behavior using sequence modeling of
-   embodiment function relations: case study on a hammer mechanism][wettstein].
-   *SN Applied Sciences* **3**, article 128.
-   DOI: 10.1007/s42452-021-04149-8.
-2. Mark Benazet, Francesco Ricca, Dario Bralla, Melanie N. Zeilinger and
-   Andrea Carron (2026). [Learning-based approximate model predictive control
-   for an impact wrench tool][benazet]. *European Journal of Control*,
-   article 101596, available online 28 July 2026.
-   DOI: 10.1016/j.ejcon.2026.101596.
+1. B. D. H. Tellegen (1952). [A general network theorem, with applications][tellegen].
+   *Philips Research Reports* **7**, 259–269.
+2. S. A. L. Salem, S. T. S. Al-Hassani and W. Johnson (1975).
+   [Aspects of the mechanics of driving nails into wood][salem].
+   *International Journal of Mechanical Sciences* **17**(3), 211–225.
+   DOI: 10.1016/0020-7403(75)90054-5.
 3. Douglas R. Rammer (2021). [Fastenings][rammer]. Chapter 8 in
    *Wood handbook: Wood as an engineering material*, General Technical
    Report FPL-GTR-282. U.S. Department of Agriculture, Forest Service,
    Forest Products Laboratory.
+4. Takanori Arima, Syunji Hayamura and Noriyoshi Maruyama (1989).
+   [Nail Driving Force and Withdrawal Resistance of Wood][arima].
+   *Journal of the Society of Materials Science, Japan* **38**(430), 747–751.
+   DOI: 10.2472/jsms.38.747.
+5. Andreas Wettstein, Patric Grauberger and Sven Matthiesen (2021).
+   [Modeling dynamic mechanical system behavior using sequence modeling of
+   embodiment function relations: case study on a hammer mechanism][wettstein].
+   *SN Applied Sciences* **3**, article 128.
+   DOI: 10.1007/s42452-021-04149-8.
+6. Hob Nilre and Bo C. Herlin (2026). [Third- and Higher-Order ODEs:
+   Coefficient synthesis, identification, and physical realization][third].
+   Companion manuscript, published on GitHub; version 4bdb25c.
+7. Paul Wallace (2015). [Energy, Torque, and Dynamics in Impact Wrench
+   Tightening][wallace]. *Journal of Manufacturing Science and Engineering*
+   **137**(2), article 024503. DOI: 10.1115/1.4028750.
+8. Mark Benazet, Francesco Ricca, Dario Bralla, Melanie N. Zeilinger and
+   Andrea Carron (2026). [Learning-based approximate model predictive control
+   for an impact wrench tool][benazet]. *European Journal of Control*,
+   article 101596, available online 28 July 2026.
+   DOI: 10.1016/j.ejcon.2026.101596.
 
-[wettstein]: https://doi.org/10.1007/s42452-021-04149-8
-[benazet]: https://doi.org/10.1016/j.ejcon.2026.101596
+[tellegen]: https://pearl-hifi.com/06_Lit_Archive/02_PEARL_Arch/Vol_16/Sec_53/Philips_Rsrch_Reports_1946_thru_1977/Philips%20Research%20Reports-07-1952.pdf#page=263
+[salem]: https://doi.org/10.1016/0020-7403(75)90054-5
 [rammer]: https://research.fs.usda.gov/treesearch/62253
+[arima]: https://doi.org/10.2472/jsms.38.747
+[wettstein]: https://doi.org/10.1007/s42452-021-04149-8
+[third]: https://github.com/hobnilre/physics-ode-3rd-deg/blob/4bdb25cbf6057a848bf9fba09c98db7c5ddc9e9a/third-and-higher-order-odes.md
+[wallace]: https://doi.org/10.1115/1.4028750
+[benazet]: https://doi.org/10.1016/j.ejcon.2026.101596

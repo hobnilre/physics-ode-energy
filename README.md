@@ -21,7 +21,13 @@ units. Component comparisons show how to strengthen either contribution
 for a fixed trajectory, and why positive coefficients alone cannot reverse
 its direction. X's physical identity remains unknown.
 
-Fourth, the same equation is applied to a simplified rotary impact driver,
+Fourth, a hammer and nail connect the same coefficients to familiar changes
+in head mass, wood resistance and backing stiffness. Exact examples separate
+head movement from permanent nail depth and show the energy the fictional
+component must supply. Practical benefit requires the same useful result
+with less total input, including preparation or replenishment of X.
+
+Fifth, the same equation is applied to a simplified rotary impact driver,
 assuming the fictional component exists inside the tool. An exact comparison
 shows how its supplied work and an ordinary reduction in damping can reduce
 hammer input by the same amount on a chosen motion. The prose quantifies
@@ -29,12 +35,6 @@ how much hammer work is replaced, distinguishes that from the damping
 percentage, and states when X could cover a braking load. Contact design,
 timing and the fictional component's energy cost remain part of the
 whole-tool comparison.
-
-Fifth, a hammer and nail connect the same coefficients to familiar changes
-in head mass, wood resistance and backing stiffness. Exact examples separate
-head movement from permanent nail depth and show the energy the fictional
-component must supply. Practical benefit requires the same useful result
-with less total input, including preparation or replenishment of X.
 
 [Read the article (PDF)](physics-ode-energy.pdf) ·
 [Manuscript source](physics-ode-energy.md)
