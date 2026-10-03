@@ -1,28 +1,25 @@
 # Energy Ledgers for Forced Harmonic ODEs
 
-Kirchhoff power balance, an unknown third derivative, and X = LRC.
+Kirchhoff power balance and an unknown component with X = LRC.
 
 Local draft; not published.
 
 ## What this article adds, and why it matters
 
-Multiplying the forced harmonic LRC equation by current gives a power balance.
-The article derives every energy expression from a signed power integral,
-then fills in the heat recipient and forcing source equations that make the
-total ledger constant. A finite capacitor has its own source equation, and
-an exact charging example evaluates all interval transfers separately.
+The article follows three questions. First, multiplying the harmonic LRC
+voltage equation by current produces a power balance. A three-line system
+exposes the opposite heat and source entries, like debit and credit in a
+double-entry ledger. Completing its missing energy equations is left open.
 
-A second part adds the fictional voltage term X q''' with X positive and its
-physical identity unknown. Integration by parts exposes both a boundary term
-and a trajectory integral. Exact numerical examples show when the new port
-absorbs energy, when it supplies energy, and which additional account must
-receive the matching debit or credit.
+Second, adding the fictional voltage term X q''' adds an opposite power
+entry in a fourth line. Its sign determines whether X supplies or absorbs
+power. A sinusoidal example supplies energy; a polynomial example absorbs
+it. Their energy transfers follow exact signed power integrals.
 
-A third part assumes only the numerical coefficient relation X = LRC.
-It checks dimensions and compares absolute cycle work, average power, and
-delivery relative to resistor heating. Component choices depend on the
-amplitude and frequency held fixed; a maximum requires specified bounds.
-The coefficient relation supplies no physical mechanism for X.
+Third, the numerical coefficient relation X=LRC is checked for consistent
+units. Component comparisons show how to strengthen either contribution
+for a fixed trajectory, and why positive coefficients alone cannot reverse
+its direction. X's physical identity remains unknown.
 
 [Read the article (PDF)](physics-ode-energy.pdf) ·
 [Manuscript source](physics-ode-energy.md)
