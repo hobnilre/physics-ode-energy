@@ -2,7 +2,7 @@
 
 Kirchhoff power balance and an unknown component with X = LRC.
 
-Local draft; not published.
+[Article repository](https://github.com/hobnilre/physics-ode-energy).
 
 ## What this article adds, and why it matters
 
@@ -54,5 +54,4 @@ keeps the PDF.
 
 Typography is installed in `article-style.yaml`, `preamble.tex`, and
 `figures/figure-style.tex`. Article-specific definitions are in
-`preamble-local.tex`. The GitHub address printed in the PDF is the configured
-future destination for this local draft.
+`preamble-local.tex`. The GitHub address printed in the PDF points to the article repository.
