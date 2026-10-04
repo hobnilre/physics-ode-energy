@@ -218,6 +218,16 @@ X=LRC>0.
 Consequently $R>0$ in this part. The identity and mechanism of $X$ remain
 unknown. The relation determines its coefficient value, including units.
 
+Our choice $X=LRC$ corresponds to $A_{-1,3}$ in the coefficient family
+$A_{r,k}$ introduced in [*Third- and Higher-Order ODEs*][third]; see
+Appendix A.2. With the electrical reference triple $(a,b,c)=(L,R,1/C)$,
+$$
+A_{-1,3}=\frac{ab}{c}=LRC.
+$$
+Here $k=3$ denotes the third derivative, while $r=-1$ selects this member
+of the family. The correspondence establishes dimensional admissibility;
+it does not uniquely select this coefficient or identify the unknown component.
+
 Since $\Omega\,\mathrm F=\mathrm s$, the dimensional check is
 \begin{equation}
 [X]=[LRC]=\mathrm{H\,s}
@@ -275,8 +285,6 @@ then, at $i\ne0$,
 At fixed trajectory, larger $L$ or $C$ increases this ratio. Larger $R$
 increases both powers equally and leaves the ratio unchanged. On a sinusoid
 the ratio is $LC\omega^2$.
-
-\newpage
 
 ## Numerical comparison in both roles
 
