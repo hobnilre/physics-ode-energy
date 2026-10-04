@@ -38,11 +38,12 @@ does not establish equal predictions under the same drive. Hammer preparation
 and the fictional component's energy cost remain part of the whole-tool comparison.
 
 Sixth, a comparison with [Third- and Higher-Order ODEs](https://github.com/hobnilre/physics-ode-3rd-deg/blob/4bdb25cbf6057a848bf9fba09c98db7c5ddc9e9a/third-and-higher-order-odes.md)
-explains their shared signed-power method. An exact integration-by-parts
-identity connects the two presentations. Assigning a term to the unknown
-component here differs from deriving a higher-order equation by eliminating
-ordinary internal states. A shorter algebraic treatment can look similar
-while leaving the physical energy accounts and interpretation open.
+explains why the same energy-accounting method can produce different-looking
+expressions. Direct power integration and integration by parts give the same
+signed work. Its physical interpretation depends on whether a term represents
+an assumed component or combines effects of eliminated internal states.
+Work through a connection, a change in storage and an equation-term expression
+must be distinguished when comparing the accounts.
 
 [Read the article (PDF)](physics-ode-energy.pdf) ·
 [Manuscript source](physics-ode-energy.md)

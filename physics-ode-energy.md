@@ -17,8 +17,8 @@ abstract: |
   and the unknown cost of supplying the fictional component. The rotary
   discussion compares adding a third derivative with conventional coupled
   hammer–anvil models, distinguishing their inputs, states and predictions.
-  A comparison with the higher-order companion explains the shared signed-work
-  method and the different assumptions needed for physical interpretation.
+  A comparison with the higher-order companion explains their shared
+  signed-work method and why the energy expressions can look different.
 keywords:
   - Kirchhoff voltage law
   - harmonic ordinary differential equations
@@ -665,71 +665,66 @@ Thus the extra term provides a simple candidate description of output dynamics. 
 
 \newpage
 
-# A shared energy method and different physical interpretations
+# The same method of energy accounting
 
-## Signed work in the two papers
+## Start with the model, then calculate the work
 
-The energy treatment here and in [*Third- and Higher-Order ODEs*][third]
-uses the same accounting principle: fix a port's effort, conjugate flow and
-positive direction, then integrate their power product over the stated
-interval. The products are voltage times current, force times velocity or
-torque times angular velocity. Matching opposite entries leaves the relevant
-stores and remaining accounts necessary for a complete physical balance.
+This paper and [*Third- and Higher-Order ODEs*][third] use the same
+energy-accounting method. First specify the model and motion. Then multiply
+each voltage by its current, force by its velocity, or torque by its angular
+velocity. Integrating each signed power over the chosen interval gives its work.
+Positive received work means absorption; negative received work means supply.
+The same transfer enters the receiving and supplying accounts with opposite signs.
 
-The companion also rearranges derivative products by integration by parts.
-For constant $X$, applying that operation to our signed port integral
-\eqref{eq:x-work} gives
-\begin{equation}
+Here the procedure appears in numbered ledger lines. The companion often
+presents it through component equations, work integrals and changes in stored
+energy. Both require the relevant accounts for a complete physical balance:
+algebraic cancellation cannot supply a missing component law. Energy accounting
+follows the model assumptions; it does not choose $X=LRC$ or identify the
+unknown component.
+
+## The same work in two forms
+
+For constant $X>0$, our component's signed received work has two equivalent forms:
+\begin{align}
 W_X(t_0,t_1)
-=X\bigl[q''q'\bigr]_{t_0}^{t_1}
+&=\int_{t_0}^{t_1}Xq'''q'\,dt\nonumber\\
+&=X\bigl[q''q'\bigr]_{t_0}^{t_1}
 -X\int_{t_0}^{t_1}(q'')^2\,dt.
 \label{eq:x-work-by-parts}
-\end{equation}
-Indeed, $(q''q')'=q'''q'+(q'')^2$. This is the same signed work in a
-different form. Over a full period of smooth periodic motion the endpoint
-product repeats, so $W_X\leq0$, agreeing with Part 2's sinusoidal supplier.
-On other intervals the endpoint term can make $W_X>0$, as the polynomial
-absorber illustrates. The boundary term does not identify an internal
-physical energy store for $X$.
+\end{align}
+The first line integrates the assumed voltage–current product. The second
+follows by integration by parts, using $(q''q')'=q'''q'+(q'')^2$.
+It calculates exactly the same work. The companion uses this reasoning at
+higher derivative orders.
 
-## What the third derivative represents
+Over a complete period of smooth periodic motion, the endpoint product
+repeats and $W_X\leq0$, consistent with Part 2's sinusoidal supplier.
+On another interval the endpoint contribution can give $W_X>0$, as in the
+polynomial absorber. The two terms in the rearranged expression belong
+together. Neither the endpoint term alone identifies a physical store nor
+the squared-derivative integral alone identifies heat. Those assignments
+require component information.
 
-Here $Xq'''$ is assumed to be the voltage of a fictional component.
-Under that assumption, \eqref{eq:x-powers} identifies its received power
-and the opposite contribution to line 2. The examples specify the work
-it would have to exchange; its identity, internal account and preparation
-or replenishment remain unspecified.
+## Why the descriptions can look different
 
-In the companion's mechanical construction, eliminating internal
-coordinates introduces higher derivatives into the observed motion equation.
-The bodies and deformations retain their physical stores. A third-derivative
-coefficient therefore need not describe a separate component's effort.
-The companion evaluates physical work at the original ports and stored
-energy from component states, distinguishing them from expressions obtained
-by multiplying the scalar equation by a derivative.
+Here we assume that $Xq'''$ is the voltage of a component carrying current
+$q'$. That assumption makes $Xq'''q'$ its received power. Calling it a
+supplier describes a specified transfer while leaving its internal account open.
 
-Comparison requires matching the port, signs and equation normalization.
-Multiplying an equation by a nonzero constant leaves its motion unchanged but
-rescales its term integrals; physical effort and flow fix the work scale.
-We assume $X=LRC$. The companion's dimensional family admits that
-third-order coefficient form, alongside others, without selecting it by
-dimensions or an energy outcome.
+In the companion's impact model, higher derivatives arise when internal
+coordinates are eliminated. A resulting term can combine several ordinary
+components' effects without identifying a separate component or energy-transfer
+connection. Physical work is still calculated from the original torques and
+their associated angular velocities.
 
-## A shorter algebraic presentation
-
-An algebraic presentation of the companion's energy discussion could retain
-the scalar equation, multiplication by a chosen flow and signed term
-integrals, leaving their physical assignment open. That would shorten it
-and bring its presentation close to this paper. Calling a term a
-component's supplying or absorbing power would require an explicit port
-assumption, such as our proposed voltage law.
-
-Removing the realization and state reconstruction would also narrow the
-supported claims: actual stores and transfers would need further
-identification. The companion's coefficient construction and identification
-questions retain their own scope. Neither an increased formal expression
-nor a supplier label establishes energy creation, a conservation violation
-or a source's available capacity.
+Work through a component connection, change in physical storage, and an
+expression obtained by rearranging an equation describe different quantities;
+their signs need not agree. Comparison requires the same system boundary,
+interval, sign convention and physical equation scale. The companion's
+additional component detail allows further accounts to be evaluated. This
+paper applies the same procedure while leaving the fictional component's
+identity and remaining account equations unspecified.
 
 \newpage
 
