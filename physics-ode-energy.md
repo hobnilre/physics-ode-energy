@@ -13,8 +13,10 @@ abstract: |
   Assuming only the coefficient relation $X=LRC$, we check the units
   and compare how component choices strengthen either contribution to the
   circuit's power equation. Hand-hammer and rotary impact examples connect
-  the model to familiar mechanics, distinguishing useful assistance, losses,
-  support movement and the unknown cost of supplying the fictional component.
+  the model to familiar mechanics, separating head movement, resistance work
+  and the unknown cost of supplying the fictional component. The rotary
+  discussion compares adding a third derivative with conventional coupled
+  hammer–anvil models, distinguishing their inputs, states and predictions.
   A comparison with the higher-order companion explains the shared signed-work
   method and the different assumptions needed for physical interpretation.
 keywords:
@@ -447,6 +449,8 @@ u=\frac{t}{1\,\mathrm{ms}}.
 \end{equation}
 It satisfies \eqref{eq:hammer-base} directly and stops first at
 $t=1\,\mathrm{ms}$, after $2/e\,\mathrm{mm}$ of head movement.
+The ordinary equation fixes the initial acceleration at $-bV/m$, whereas
+our third-order example uses the separately specified value $x''(0)=0$.
 The fictional model reaches $2\,\mathrm{mm}$ instead. Its larger loading
 movement is accompanied by $\pi\,\mathrm J$ supplied by $X_h$, in addition
 to the $1\,\mathrm J$ initially put into the moving mass. The extra supply
@@ -520,10 +524,8 @@ The spring and damping laws define a local ideal model. Contact switching,
 successive blows and permanent fastener advance require additional laws.
 
 The companion [*Third- and Higher-Order ODEs* (Nilre and Herlin, 2026)][third]
-derives a fourth-order hammer equation from coupled hammer and anvil laws.
-That equation also contains derivatives of the driving torque. It describes
-the coupled assembly; it does not identify the isolated fictional component
-assumed here.
+treats a coupled hammer–anvil assembly. The model comparison below explains
+how that description differs from our output equation.
 
 Now assume that the fictional component exists somewhere inside the tool
 and acts at this output. Write its rotational coefficient as $X_r$:
@@ -625,61 +627,33 @@ $J\nu^2/k=1/10$, and $b_{\mathrm{eff}}=9/500\,\mathrm{N\,m\,s/rad}$.
 
 \newpage
 
-## How much conventional effort can $X_r$ replace?
+## Comparing the third-order ODE with conventional impact models
 
-An effective driver reaches a specified tightening target with less battery
-work and time, within torque, vibration and wear limits. Conventional
-mechanical design adjusts hammer preparation and contact with the anvil
-([Wettstein et al., 2021][wettstein]); control adjusts motor effort and
-impact timing ([Benazet et al., 2026][benazet]). The replacement by $X_r$
-can be stated more precisely at our output boundary.
+\enlargethispage{\baselineskip}
 
-**During the useful motion, it can replace part of the hammer input.**
-In the worked example, $X_r$ supplies $\pi/200\,\mathrm J$, so the hammer
-can deliver exactly that much less work while retaining the same motion.
-Its assisting torque is $1/5\,\mathrm{N\,m}$ at the start and falls to
-zero at the end. The ordinary hammer work, evaluated from its port power, is
-\begin{equation}
-W_h^{(0)}=\int_0^{\pi/(2\nu)}\tau_0\Omega\,dt
-=\left(\frac92+\frac{\pi}{20}\right)\mathrm J.
-\label{eq:rotary-baseline-work}
-\end{equation}
-Thus $X_r$ replaces the fraction $\pi/(900+10\pi)$ of that input,
-approximately $0.34\%$. The table's $10\%$ refers specifically to damping;
-the fraction of total hammer work replaced is much smaller here.
+Adding $X_r\theta'''$ changes the mathematical description of the output. With prescribed hammer torque, the ordinary equation needs an initial angle and angular velocity. The proposed equation also needs an initial angular acceleration. It is a **third-order linear ODE**: the extra derivative adds one state to the description, while $X_r=Jb/k$ fixes its coefficient. Both equations still take the hammer torque as a given function; neither determines the hammer–anvil contact from its own mechanics.
 
-**It can substitute for the input saving from reducing losses.**
-On this sine motion, write $r=J\nu^2/k$. For $0<r<1$, $X_r$ covers the
-fraction $r$ of the damping work, giving the same hammer-input reduction
-as lowering $b$ by that fraction. Actual heating remains $W_b$ in the
-fictional model. At $r=1$, it pays all the damping work; the inertial and
-spring torques also cancel on this particular motion, so the required
-hammer torque is zero throughout the segment. The initial rotation still
-has to be prepared. For $r>1$, its supply exceeds the damping work, beyond
-what reducing a nonnegative damping coefficient alone can reproduce.
-Increasing $b$ raises both supply and heating equally; changing $J$ or $k$
-also changes the output mechanics. A larger $X_r$ alone is not an optimum.
+A conventional model can instead resolve the hammer, anvil and deforming contact separately. Such component models describe how their interaction produces a torque pulse ([Wettstein et al., 2021][wettstein]). For a simple example, keep one smooth interval of active contact. Let $\theta_h$ and $\theta_a$ be hammer and anvil angles, with the clearance absorbed into their reference positions, and put $\delta=\theta_h-\theta_a$. Take positive constant inertias $J_h,J_a$, contact stiffness and damping $k_c,d_c$, and joint stiffness and damping $k_j,d_j$. With applied hammer drive torque $u(t)$, write
 
-**It can replace braking effort only during absorption.**
-Where $\theta'''\Omega>0$, $X_r$ takes the instantaneous power
-$X_r\theta'''\Omega$. It can cover that amount of a separately required
-braking load; conventional braking must cover any shortfall. Excess
-absorption requires an adjusted drive or motion. Slowing down alone does
-not establish this role: the worked sine slows to rest while $X_r$
-*supplies* power, so it provides no replacement for a brake there.
+\begin{align}
+J_h\theta_h''&=u-\tau_c,
+&J_a\theta_a''&=\tau_c-\tau_j,\nonumber\\
+\tau_c&=k_c\delta+d_c\delta',
+&\tau_j&=k_j\theta_a+d_j\theta_a'.
+\label{eq:rotary-resolved-comparison}
+\end{align}
 
-**Contact design and control still determine when the assistance is useful.**
-The term has no independent timing command: the motion fixes its sign.
-Where $\theta'''=0$, it provides no torque assistance; where $\Omega=0$,
-it transfers no power. Its work contribution therefore does not specify
-a replacement for contact geometry, engagement and release, sensing, or
-the decision to stop at the tightening target. Nor does the local work
-saving specify a percentage reduction in hammer size or motor rating.
+The anvil equation is our ordinary output equation with $\theta=\theta_a$, $J=J_a$, $b=d_j$, $k=k_j$ and $\tau_h=\tau_c$. The additional hammer equation and contact law determine that torque from the interacting motions. Their initial data are the two angles and two angular velocities.
 
-The quantified replacement concerns work at the output during a specified
-motion. Battery savings also depend on motor and hammer preparation and
-on whatever supplies or replenishes $X_r$. Its existence and coefficient
-alone leave those costs open.
+These two second-order equations generally become one fourth-order equation when an internal angle is eliminated. Eliminating the hammer angle gives an output equation involving $u$ and $u'$; the [*Third- and Higher-Order ODEs* companion][third] shows the complementary hammer-angle equation, whose forcing also contains $u''$. Higher derivatives can therefore represent ordinary internal motion that has been removed algebraically. The resulting coefficients and forcing follow together from the component laws. They do not in general reduce to adding only $(Jb/k)\theta'''$ to our output equation.
+
+Other conventional descriptions answer different questions. An instantaneous impact law relates velocities before and after a blow, leaving its torque waveform unresolved. A compliant contact model resolves motion during the blow; a nonlinear contact law can make that response depend on deformation amplitude. Engagement, release and friction need their own rules. Adding a constant-coefficient third derivative does not by itself supply those rules ([Nilre and Herlin, 2026][third]).
+
+The proposed third-order equation is compact and makes its assumed extra torque explicit. Using it as a reduced description of an ordinary driver would require a derivation or identification on a stated operating range, including the input and initial conditions. Here it remains the model of the assumed unknown component. Its additional state alone establishes no improvement in prediction.
+
+Section 5.2 gives one exact comparison: on the prescribed sine motion, the extra term has the same torque effect as changing $b$ to $b-X_r\nu^2$. The required input is adjusted in each case. At another frequency that damping value changes, so this agreement does not establish equivalence for general impacts. Comparing predictive models instead requires the same physical input, compatible preparation and the same observed motion, without readjusting the input to impose the answer.
+
+Thus the extra term provides a simple candidate description of output dynamics. A resolved conventional model additionally explains how the interacting bodies generate its input. The work comparison remains at the output; whole-tool cost also includes hammer preparation and whatever supplies or replenishes $X_r$. Part 6 addresses the related energy distinction: this paper assigns $X_r\theta'''$ an assumed component torque, while elimination alone does not assign a new physical component or energy account.
 
 \newpage
 
@@ -778,11 +752,6 @@ or a source's available capacity.
 7. Paul Wallace (2015). [Energy, Torque, and Dynamics in Impact Wrench
    Tightening][wallace]. *Journal of Manufacturing Science and Engineering*
    **137**(2), article 024503. DOI: 10.1115/1.4028750.
-8. Mark Benazet, Francesco Ricca, Dario Bralla, Melanie N. Zeilinger and
-   Andrea Carron (2026). [Learning-based approximate model predictive control
-   for an impact wrench tool][benazet]. *European Journal of Control*,
-   article 101596, available online 28 July 2026.
-   DOI: 10.1016/j.ejcon.2026.101596.
 
 [tellegen]: https://pearl-hifi.com/06_Lit_Archive/02_PEARL_Arch/Vol_16/Sec_53/Philips_Rsrch_Reports_1946_thru_1977/Philips%20Research%20Reports-07-1952.pdf#page=263
 [salem]: https://doi.org/10.1016/0020-7403(75)90054-5
@@ -791,4 +760,3 @@ or a source's available capacity.
 [wettstein]: https://doi.org/10.1007/s42452-021-04149-8
 [third]: https://github.com/hobnilre/physics-ode-3rd-deg/blob/4bdb25cbf6057a848bf9fba09c98db7c5ddc9e9a/third-and-higher-order-odes.md
 [wallace]: https://doi.org/10.1115/1.4028750
-[benazet]: https://doi.org/10.1016/j.ejcon.2026.101596

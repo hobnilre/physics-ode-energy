@@ -30,11 +30,12 @@ with less total input, including preparation or replenishment of X.
 Fifth, the same equation is applied to a simplified rotary impact driver,
 assuming the fictional component exists inside the tool. An exact comparison
 shows how its supplied work and an ordinary reduction in damping can reduce
-hammer input by the same amount on a chosen motion. The prose quantifies
-how much hammer work is replaced, distinguishes that from the damping
-percentage, and states when X could cover a braking load. Contact design,
-timing and the fictional component's energy cost remain part of the
-whole-tool comparison.
+hammer input by the same amount on a chosen motion. The model comparison
+then distinguishes adding one third derivative from resolving hammer,
+anvil and contact motion in a conventional coupled model. Their inputs,
+initial conditions and scalar orders differ; matching one prescribed motion
+does not establish equal predictions under the same drive. Hammer preparation
+and the fictional component's energy cost remain part of the whole-tool comparison.
 
 Sixth, a comparison with [Third- and Higher-Order ODEs](https://github.com/hobnilre/physics-ode-3rd-deg/blob/4bdb25cbf6057a848bf9fba09c98db7c5ddc9e9a/third-and-higher-order-odes.md)
 explains their shared signed-power method. An exact integration-by-parts
