@@ -317,6 +317,8 @@ determine the maximum effect. The coefficient relation specifies the power
 required of $X$ on a chosen motion. Its physical identity and the remaining
 terms of line 4 are still open.
 
+This comparison asks what input is needed for a chosen motion. It does not by itself show that a component change improves the response produced by the same input.
+
 \newpage
 
 # A hammer, a nail and the feel of a blow
@@ -722,9 +724,9 @@ Work through a component connection, change in physical storage, and an
 expression obtained by rearranging an equation describe different quantities;
 their signs need not agree. Comparison requires the same system boundary,
 interval, sign convention and physical equation scale. The companion's
-additional component detail allows further accounts to be evaluated. This
-paper applies the same procedure while leaving the fictional component's
-identity and remaining account equations unspecified.
+additional component detail allows further accounts to be evaluated.
+
+This paper uses the same work-calculation method. The assumed extra component still needs a physical identity and the missing parts of its energy account.
 
 \newpage
 
