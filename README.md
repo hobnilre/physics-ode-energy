@@ -4,51 +4,36 @@ Kirchhoff power balance and an unknown component with X = LRC.
 
 [Article repository](https://github.com/hobnilre/physics-ode-energy).
 
-## What this article adds, and why it matters
+## Focus
 
-The article follows six questions. First, multiplying the harmonic LRC
-voltage equation by current produces a power balance. A three-line system
-exposes the opposite heat and source entries, like debit and credit in a
-double-entry ledger. Completing its missing energy equations is left open.
+Parts 2 and 3 develop the main argument: the signed power of an unknown
+term X q''' determines whether it supplies or absorbs energy, and the
+coefficient relation X=LRC scales that transfer on a fixed trajectory.
+Exact sinusoidal and polynomial examples show both roles. Positive
+coefficients alone cannot reverse the direction of transfer.
 
-Second, adding the fictional voltage term X q''' adds an opposite power
-entry in a fourth line. Its sign determines whether X supplies or absorbs
-power. A sinusoidal example supplies energy; a polynomial example absorbs
-it. Their energy transfers follow exact signed power integrals.
-
-Third, the numerical coefficient relation X=LRC is checked for consistent
-units. Component comparisons show how to strengthen either contribution
-for a fixed trajectory, and why positive coefficients alone cannot reverse
-its direction. X's physical identity remains unknown.
-
-Fourth, a hammer and nail connect the same coefficients to familiar changes
-in head mass, wood resistance and backing stiffness. Exact examples separate
-head movement from permanent nail depth and show the energy the fictional
-component must supply. Practical benefit requires the same useful result
-with less total input, including preparation or replenishment of X.
-
-Fifth, the same equation is applied to a simplified rotary impact driver,
-assuming the fictional component exists inside the tool. An exact comparison
-shows how its supplied work and an ordinary reduction in damping can reduce
-hammer input by the same amount on a chosen motion. The model comparison
-then distinguishes adding one third derivative from resolving hammer,
-anvil and contact motion in a conventional coupled model. Their inputs,
-initial conditions and scalar orders differ; matching one prescribed motion
-does not establish equal predictions under the same drive. Hammer preparation
-and the fictional component's energy cost remain part of the whole-tool comparison.
-
-Sixth, a comparison with [Third- and Higher-Order ODEs](https://github.com/hobnilre/physics-ode-3rd-deg/blob/4bdb25cbf6057a848bf9fba09c98db7c5ddc9e9a/third-and-higher-order-odes.md)
-explains why the same energy-accounting method can produce different-looking
-expressions. Direct power integration and integration by parts give the same
-signed work. Its physical interpretation depends on whether a term represents
-an assumed component or combines effects of eliminated internal states.
-Work through a connection, a change in storage and an equation-term expression
-must be distinguished when comparing the accounts.
+Part 1 establishes the Kirchhoff power ledger and its missing accounts.
+Parts 4 and 5 briefly apply the same sign and scaling rules to a hammer
+and to rotary output motion, with exact work integrals. The component's
+physical identity and remaining energy account stay open.
 
 [Read the article (PDF)](physics-ode-energy.pdf) ·
 [Manuscript source](physics-ode-energy.md)
 
-[Läs artikeln på svenska](https://github.com/hobnilre/physics-ode-energy-sv).
+[Earlier Swedish edition / Tidigare svensk version](https://github.com/hobnilre/physics-ode-energy-sv).
+
+## Four related articles
+
+| Article | Main role |
+| --- | --- |
+| [Template](https://github.com/hobnilre/physics-ode-template) | Common equation, domain dictionary, duality and harmonic convention. |
+| [Coefficient synthesis](https://github.com/hobnilre/physics-ode-coefficient-synthesis) | Coefficient family, LRC table, stairs and phasor factors. |
+| [Interconnection](https://github.com/hobnilre/physics-ode-interconnect-ser-par) | Series/parallel constraints, initial coordinates, elimination and phasor solutions. |
+| [Energy](physics-ode-energy.pdf) | Signed power and work of the added term, with fixed-motion coefficient scaling. |
+
+Each article states its local assumptions. Shared derivations are linked
+where they are used. The energy article uses the coefficient-synthesis
+article for $A_{-1,3}=LRC$.
 
 ## Standalone build
 
