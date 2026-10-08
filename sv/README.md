@@ -4,9 +4,10 @@
 
 Tecknet hos $Xq'''q'$ avgör om en okänd term tillför eller absorberar effekt.
 Exakta sinus- och polynomförlopp visar båda fallen; valet $X=LRC$ skalar
-överföringen vid oförändrad rörelse. Korta exempel med en hammare och ett
-roterande verktyg tillämpar regeln, medan komponentens fysiska identitet
-och återstående energibokföring lämnas öppna.
+överföringen vid oförändrad rörelse. Ett hammarexempel kopplar massa,
+motstånd och underlagets styvhet till slagets rörelse och den okända
+termens arbete; ett exempel med ett roterande verktyg tillämpar samma regel.
+Komponentens fysiska identitet och återstående energibokföring lämnas öppna.
 
 [ODE-mallen](https://github.com/hobnilre/physics-ode-template) ger bytena
 mellan domäner, [koefficientsyntesen](https://github.com/hobnilre/physics-ode-coefficient-synthesis)

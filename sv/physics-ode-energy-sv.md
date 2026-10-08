@@ -8,7 +8,7 @@ abstract: |
   En tillagd term $Xq'''$ tillför eller absorberar energi beroende på tecknet
   hos $Xq'''q'$. Exakta förlopp visar båda fallen. Valet $X=LRC$
   skalar överföringen vid oförändrad rörelse men bestämmer inte dess riktning.
-  Korta exempel med en hammare och ett roterande verktyg tillämpar samma regel.
+  Exempel med en hammare och ett roterande verktyg tillämpar samma regel.
   Komponentens fysiska identitet och återstående energibokföring lämnas öppna.
 keywords:
   - Kirchhoffs spänningslag
@@ -203,6 +203,15 @@ X_hx'''+mx''+dx'+kx=F(t),\qquad X_h=\frac{md}{k}.
 Anta att den okända komponenten verkar inuti hammaren. Dess mottagna
 effekt är $X_hx'''v$; skalningen vid fast rörelse i avsnitt 3 blir $md/k$.
 
+Tänk på $m$ som hammarens tyngd, $d$ som det motstånd den rörliga spiken
+möter och $k$ som styvheten i kontakten, arbetsstycket och underlaget.
+Här beskriver $dv$ motståndsförluster med en enkel hastighetsberoende
+kraft, medan $kx$ är den återförande kraften från elastisk eftergivlighet.
+Det ovana $x'''$ anger hur snabbt accelerationen ändras. Medan
+hammarhuvudet rör sig framåt ger en allt kraftigare inbromsning
+$x'''v<0$, så att den okända komponenten tillför effekt; när inbromsningen
+avtar blir tecknet det motsatta, så att komponenten absorberar effekt.
+
 För $F=0$, $x(0)=0$, $v(0)=v_0>0$ och $x''(0)=0$, sätt $\omega=\sqrt{k/m}$.
 Fram till första stoppet gäller
 \begin{equation}
@@ -218,8 +227,42 @@ W_{X_h}=\int_0^{t_*}X_hx'''v\,dt
 \label{eq:hammer-work}
 \end{equation}
 Komponenten tillför motståndsarbetet från sitt ospecificerade konto.
-Förskjutningen $x$ innefattar elastisk rörelse i stödet; spikens bestående
-inträngningsdjup är obestämt.
+
+För att förstå detta idealiserade slag genom sådant vi känner igen,
+ändra en koefficient i taget och håll de andra två och hastigheten
+$v_0$ vid anslaget oförändrade. Hammarhuvudet förflyttas
+$x(t_*)=v_0/\omega$ fram till sitt första stopp.
+
+Ett större $m$ motsvarar en tyngre hammare. Vid samma hastighet hos
+hammarhuvudet är trögheten större: det tar längre tid att stanna och
+huvudet rör sig längre. Ett mindre $m$ ger en kortare förflyttning och
+ett tidigare stopp. Den större massan ökar också $X_h$; vid dessa slag
+tillför den okända komponenten mer arbete när motståndet verkar över
+den längre förflyttningen. Samma hastighet vid anslaget innebär inte
+att det krävs samma ansträngning för att svinga den tyngre hammaren.
+
+Ett större $d$ motsvarar starkare motstånd vid samma hastighet---som
+när en spik kärvar mer.
+Ett mindre $d$ motsvarar att spiken går lättare. Extra motstånd skulle
+ändra en vanlig hammares rörelse. I just detta slag ger dock ett
+större $d$ också ett större $X_h$, så att den okända komponenten tillför precis det
+extra motståndsarbetet. Stopptiden och hammarhuvudets förflyttning
+förblir oförändrade, medan motståndsarbetet och komponentens tillförda
+arbete båda ökar i proportion till $d$. Om $d$ minskar, minskar båda.
+Att termerna tar ut varandra är den antagna komponentens särskilda
+förutsägelse för det angivna rörelseförloppet.
+
+Ett större $k$ motsvarar ett fastare underlag: en bräda med stöd nära
+spiken ger efter mindre än en som kan böjas under slaget. Vid en given
+förskjutning blir den återförande kraften större, och detta idealiserade
+slag stannar tidigare efter en kortare förflyttning. Ett mindre $k$
+låter rörelsen pågå längre och nå längre. Eftersom eftergivligheten
+är $1/k$ minskar ett fastare underlag $X_h$ och, vid dessa slag, det
+arbete som den okända komponenten tillför; ett mjukare underlag ökar
+båda. Extra förflyttning hos hammarhuvudet kan vara elastisk böjning
+av stödet. Spikens bestående inträngningsdjup förblir obestämt i modellen.
+
+\newpage
 
 # Roterande utgång vid föreskriven rörelse
 

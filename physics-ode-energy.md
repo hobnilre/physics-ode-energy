@@ -7,7 +7,7 @@ abstract: |
   An added term $Xq'''$ supplies or absorbs energy according to the sign
   of $Xq'''q'$. Exact trajectories show both roles. Choosing $X=LRC$
   scales the transfer on fixed motion; it does not choose its direction.
-  Brief hammer and rotary examples apply the same rule. The component's
+  Hammer and rotary examples apply the same rule. The component's
   physical identity and remaining energy account stay open.
 keywords:
   - Kirchhoff voltage law
@@ -197,6 +197,15 @@ X_hx'''+mx''+dx'+kx=F(t),\qquad X_h=\frac{md}{k}.
 Assume the unknown component acts inside the hammer. Its received power
 is $X_hx'''v$; Section 3's fixed-motion scaling becomes $md/k$.
 
+Think of $m$ as the hammer's heft, $d$ as the resistance encountered by
+the moving nail, and $k$ as the stiffness of the contact, workpiece and
+backing. Here $dv$ represents resisting losses by a simple speed-dependent
+force, while $kx$ is the restoring force from elastic give. The unfamiliar $x'''$ measures
+how quickly acceleration changes. While the head moves forward, a
+deceleration that builds in strength gives $x'''v<0$, so the unknown
+component supplies power; a deceleration that eases gives the opposite
+sign, so it absorbs power.
+
 For $F=0$, $x(0)=0$, $v(0)=v_0>0$ and $x''(0)=0$, put $\omega=\sqrt{k/m}$.
 Up to the first stop,
 \begin{equation}
@@ -212,7 +221,37 @@ W_{X_h}=\int_0^{t_*}X_hx'''v\,dt
 \label{eq:hammer-work}
 \end{equation}
 The component supplies the resistance work from its unspecified account.
-Movement $x$ includes elastic support motion; permanent nail depth is undetermined.
+
+To read this ideal blow in familiar terms, change one coefficient at a
+time, keeping the other two and the incoming speed $v_0$ fixed.
+The head travels $x(t_*)=v_0/\omega$ before its first stop.
+
+Increasing $m$ corresponds to using a heavier hammer. At the same head speed,
+there is more inertia to arrest: the blow takes longer to stop and the
+head travels farther. Reducing $m$ gives a shorter movement and an earlier
+stop. The larger mass also raises $X_h$; on these blows the unknown
+component supplies more work as resistance acts over the longer movement.
+Keeping the incoming speed the same does not mean that the heavier hammer
+takes the same effort to swing.
+
+Increasing $d$ represents stronger opposition at the same speed---the
+drag one associates with a nail that grips harder. Decreasing $d$ represents
+easier movement. Extra drag would change an ordinary hammer's motion.
+In this particular blow, however, increasing $d$ also increases $X_h$
+so that the unknown component supplies exactly the extra resistance work.
+The stopping time and head travel stay unchanged, while the resistance
+work and the component's supplied work both increase in proportion to $d$.
+Reducing $d$ reduces both. This cancellation is the distinctive prediction
+of the assumed component on the stated trajectory.
+
+Increasing $k$ corresponds to firmer backing: a board supported close
+to the nail gives less than one that can bend under the blow. At a given
+displacement the restoring force is larger, and this ideal blow stops
+sooner after less head travel. Decreasing $k$ lets the movement continue
+longer and farther. Since compliance is $1/k$, firmer backing reduces
+$X_h$ and, on these blows, the work supplied by the unknown component;
+softer backing increases both. Extra head travel can be elastic bending
+of the support. Permanent nail depth remains undetermined by this model.
 
 # Rotary output on prescribed motion
 
