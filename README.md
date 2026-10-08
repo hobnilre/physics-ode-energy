@@ -20,7 +20,7 @@ physical identity and remaining energy account stay open.
 [Read the article (PDF)](physics-ode-energy.pdf) ·
 [Manuscript source](physics-ode-energy.md)
 
-[Earlier Swedish edition / Tidigare svensk version](https://github.com/hobnilre/physics-ode-energy-sv).
+[Swedish edition / Svensk version](https://github.com/hobnilre/physics-ode-energy-sv).
 
 ## Four related articles
 
