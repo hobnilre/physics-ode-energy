@@ -7,6 +7,9 @@ Exakta sinus- och polynomförlopp visar båda fallen; valet $X=LRC$ skalar
 överföringen vid oförändrad rörelse. Ett hammarexempel kopplar massa,
 motstånd och underlagets styvhet till slagets rörelse och den okända
 termens arbete; ett exempel med ett roterande verktyg tillämpar samma regel.
+Båda ger skenbara COP-värden för motståndsarbete och elastisk energilagring
+i förhållande till ursprunglig rörelseenergi och pålagt arbete, med den
+okända termens bidrag räknat separat.
 Komponentens fysiska identitet och återstående energibokföring lämnas öppna.
 
 [ODE-mallen](https://github.com/hobnilre/physics-ode-template) ger bytena

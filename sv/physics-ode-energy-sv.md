@@ -8,8 +8,11 @@ abstract: |
   En tillagd term $Xq'''$ tillför eller absorberar energi beroende på tecknet
   hos $Xq'''q'$. Exakta förlopp visar båda fallen. Valet $X=LRC$
   skalar överföringen vid oförändrad rörelse men bestämmer inte dess riktning.
-  Exempel med en hammare och ett roterande verktyg tillämpar samma regel.
-  Komponentens fysiska identitet och återstående energibokföring lämnas öppna.
+  Exempel med en hammare och ett roterande verktyg tillämpar samma regel
+  och ger skenbara COP-värden för angivna energiinsatser, där komponentens
+  bidrag inte ingår.
+  Det räknade utbytet omfattar motståndsarbete och elastisk energilagring;
+  komponentens fysiska identitet och återstående energibokföring lämnas öppna.
 keywords:
   - Kirchhoffs spänningslag
   - harmoniska ordinära differentialekvationer
@@ -262,7 +265,33 @@ arbete som den okända komponenten tillför; ett mjukare underlag ökar
 båda. Extra förflyttning hos hammarhuvudet kan vara elastisk böjning
 av stödet. Spikens bestående inträngningsdjup förblir obestämt i modellen.
 
-\newpage
+För ett prestandatal (COP) räknar vi arbetet som överförs till modellens
+motstånd och fjäder som utbyte. Som insats räknar vi den ursprungliga
+rörelseenergin och det pålagda arbetet, utan den okända komponentens
+tillförda arbete. Vi kallar denna kvot ett skenbart COP-värde. För det
+angivna slaget är energierna vid intervallets ändpunkter och arbetet på lasten
+\begin{equation}
+\begin{aligned}
+K_0&=\frac12mv_0^2,\qquad
+U_*:=\frac12kx(t_*)^2=K_0,\\
+W_{\mathrm{load},h}&=\int_0^{t_*}(dv+kx)v\,dt=W_d+U_*.
+\end{aligned}
+\label{eq:hammer-load-work}
+\end{equation}
+Eftersom $F=0$ är det pålagda arbetet $\int_0^{t_*}Fv\,dt$ noll. Därmed fås
+\begin{equation}
+\mathrm{COP}_{\mathrm{app},h}
+=\frac{W_{\mathrm{load},h}}{K_0}
+=1+\frac{\pi d}{2\sqrt{mk}}.
+\label{eq:hammer-cop}
+\end{equation}
+Till exempel ger $d=\sqrt{mk}$ värdet $1+\pi/2\approx2{,}57$. Vid samma
+jämförelser, med en koefficient ändrad i taget och fast $v_0$, ökar kvoten
+med $d$ men minskar med $m$ eller $k$. En tyngre hammare får mer arbete
+från komponenten under detta slag, men dess ursprungliga rörelseenergi
+växer snabbare. Kvoten räknar både dissiperat arbete och återvinningsbar
+elastisk energi; ingen av dessa storheter mäter ensam spikens bestående
+inträngning.
 
 # Roterande utgång vid föreskriven rörelse
 
@@ -302,6 +331,47 @@ Till exempel ger $J\omega^2/k=1/10$ att $d_{\mathrm{eff}}=9d/10$ och
 $W_{X_r}=-W_d/10$. Komponenten tillför arbete som minskad dämpning
 i stället undviker att dissipera. Jämförelsen anpassar drivningen så att
 rörelsen blir densamma; hammarens förberedelse och det okända kontot ingår inte.
+
+Använd samma definition av skenbart COP-värde för intervallet med en
+kvarts sinusperiod och välj $0<r:=J\omega^2/k\leq1$. Den ursprungliga
+rörelseenergin och den slutliga elastiska energin är
+\begin{equation}
+U:=\frac12k\Theta^2,\qquad
+K_0=\frac12J\Theta^2\omega^2=rU.
+\label{eq:rotary-endpoint-energy}
+\end{equation}
+Motsvarande arbete på lasten och tillförda hammararbete fås genom att
+integrera respektive effekt med dess tecken:
+\begin{equation}
+\begin{aligned}
+W_{\mathrm{load},r}
+&=\int_0^T(d\Omega+k\theta)\Omega\,dt=U+W_d,\\
+W_h&=\int_0^T\tau_X\Omega\,dt
+=U-K_0+(1-r)W_d=(1-r)(U+W_d).
+\end{aligned}
+\label{eq:rotary-cop-work}
+\end{equation}
+Här är $\tau_X=J\theta''+d\Omega+k\theta+X_r\theta'''$ det hammarmoment
+som krävs med komponenten. När utgångens ursprungliga rörelseenergi
+räknas med i nämnaren fås
+\begin{equation}
+\mathrm{COP}_{\mathrm{app},r}
+=\frac{W_{\mathrm{load},r}}{K_0+W_h}
+=\frac{U+W_d}{U+(1-r)W_d}.
+\label{eq:rotary-cop}
+\end{equation}
+För $r=1/10$ ger det ytterligare valet $W_d=U$, likvärdigt med
+$d\omega/k=2/\pi$, värdet $\mathrm{COP}_{\mathrm{app},r}=20/19\approx1{,}053$.
+Att tillföra en tiondel av dämpningsarbetet innebär alltså inte att den
+totala räknade energiinsatsen minskar med tio procent.
+
+I båda exemplen överstiger kvoten ett därför att komponentens tillförda
+arbete inte räknas med i insatsen. Om $-W_{X_h}=W_d$ respektive $-W_{X_r}=rW_d$
+tas med i nämnaren blir kvoten exakt ett. Dessa identiteter för intervallet
+lämnar komponentens återstående energibokföring öppen. Ett praktiskt
+COP-värde för verktyget kräver dessutom ett definierat nyttigt utbyte i
+spikdrivning eller åtdragning samt energikostnaden för förberedelse och
+återställning av energitillgången.
 
 # Referenser {-}
 

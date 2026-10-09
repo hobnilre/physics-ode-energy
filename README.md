@@ -6,8 +6,10 @@ The sign of $Xq'''q'$ determines whether an unknown term supplies or
 absorbs power. Exact sinusoidal and polynomial trajectories show both roles;
 choosing $X=LRC$ scales the transfer on fixed motion. A hammer example connects
 mass, resistance and backing stiffness to the blow's motion and the unknown
-term's work; a rotary example applies the same rule. The component's physical
-identity and remaining energy account stay open.
+term's work; a rotary example applies the same rule. Both give apparent COPs
+for resistance work and elastic storage relative to initial kinetic energy
+and applied work, with the unknown term's contribution counted separately.
+The component's physical identity and remaining energy account stay open.
 
 The [ODE template](https://github.com/hobnilre/physics-ode-template) gives
 the domain substitutions, [coefficient synthesis](https://github.com/hobnilre/physics-ode-coefficient-synthesis)

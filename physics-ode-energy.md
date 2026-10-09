@@ -7,8 +7,10 @@ abstract: |
   An added term $Xq'''$ supplies or absorbs energy according to the sign
   of $Xq'''q'$. Exact trajectories show both roles. Choosing $X=LRC$
   scales the transfer on fixed motion; it does not choose its direction.
-  Hammer and rotary examples apply the same rule. The component's
-  physical identity and remaining energy account stay open.
+  Hammer and rotary examples apply the same rule and give apparent
+  coefficients of performance relative to specified ordinary inputs.
+  Their counted output includes resistance work and elastic storage;
+  the component's physical identity and remaining energy account stay open.
 keywords:
   - Kirchhoff voltage law
   - harmonic ordinary differential equations
@@ -253,6 +255,33 @@ $X_h$ and, on these blows, the work supplied by the unknown component;
 softer backing increases both. Extra head travel can be elastic bending
 of the support. Permanent nail depth remains undetermined by this model.
 
+For a coefficient of performance (COP), count work delivered to the
+modeled resistance and spring as output. Count initial kinetic energy
+and applied work as input, excluding the unknown component's supplied
+work. Call this ratio an apparent COP. For the stated blow, the endpoint
+energies and load work are
+\begin{equation}
+\begin{aligned}
+K_0&=\frac12mv_0^2,\qquad
+U_*:=\frac12kx(t_*)^2=K_0,\\
+W_{\mathrm{load},h}&=\int_0^{t_*}(dv+kx)v\,dt=W_d+U_*.
+\end{aligned}
+\label{eq:hammer-load-work}
+\end{equation}
+Since $F=0$, the applied work $\int_0^{t_*}Fv\,dt$ is zero. Thus
+\begin{equation}
+\mathrm{COP}_{\mathrm{app},h}
+=\frac{W_{\mathrm{load},h}}{K_0}
+=1+\frac{\pi d}{2\sqrt{mk}}.
+\label{eq:hammer-cop}
+\end{equation}
+For example, $d=\sqrt{mk}$ gives $1+\pi/2\approx2.57$. Under the same
+one-at-a-time comparisons at fixed $v_0$, increasing $d$ raises the ratio,
+while increasing $m$ or $k$ lowers it. A heavier hammer receives more work
+from the component on this blow, but its initial kinetic energy grows faster.
+The ratio counts both dissipated work and recoverable elastic energy;
+neither quantity by itself measures permanent nail penetration.
+
 # Rotary output on prescribed motion
 
 For output angle $\theta$ and speed $\Omega=\theta'$, substitute
@@ -291,6 +320,46 @@ For example, $J\omega^2/k=1/10$ gives $d_{\mathrm{eff}}=9d/10$ and
 $W_{X_r}=-W_d/10$. The component supplies work that reduced damping
 avoids dissipating. This comparison adjusts the forcing to match motion;
 hammer preparation and the unknown account remain outside it.
+
+Apply the same apparent-COP definition to the quarter-sine interval,
+taking $0<r:=J\omega^2/k\leq1$. Its initial kinetic and final elastic
+energies are
+\begin{equation}
+U:=\frac12k\Theta^2,\qquad
+K_0=\frac12J\Theta^2\omega^2=rU.
+\label{eq:rotary-endpoint-energy}
+\end{equation}
+The corresponding load work and applied hammer work follow from their
+signed power integrals:
+\begin{equation}
+\begin{aligned}
+W_{\mathrm{load},r}
+&=\int_0^T(d\Omega+k\theta)\Omega\,dt=U+W_d,\\
+W_h&=\int_0^T\tau_X\Omega\,dt
+=U-K_0+(1-r)W_d=(1-r)(U+W_d).
+\end{aligned}
+\label{eq:rotary-cop-work}
+\end{equation}
+Here $\tau_X=J\theta''+d\Omega+k\theta+X_r\theta'''$ is the required
+hammer torque with the component. Including the output's initial kinetic
+energy in the denominator gives
+\begin{equation}
+\mathrm{COP}_{\mathrm{app},r}
+=\frac{W_{\mathrm{load},r}}{K_0+W_h}
+=\frac{U+W_d}{U+(1-r)W_d}.
+\label{eq:rotary-cop}
+\end{equation}
+For $r=1/10$, additionally choosing $W_d=U$, equivalently
+$d\omega/k=2/\pi$, gives $\mathrm{COP}_{\mathrm{app},r}=20/19\approx1.053$.
+Supplying one tenth of the damping work therefore does not imply a
+ten-percent reduction in the total counted input.
+
+In both examples, the excess over one comes from excluding the component's
+supplied work from the input. Including $-W_{X_h}=W_d$ or $-W_{X_r}=rW_d$
+in the respective denominator makes the ratio exactly one. These interval
+identities leave the component's remaining account open. A practical tool
+COP additionally needs a defined useful nail-driving or fastening output
+and the energy cost of preparation and replenishment.
 
 # References {-}
 
